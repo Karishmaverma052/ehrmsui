@@ -12,7 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
     <mat-toolbar color="primary">
       <span class="spacer">{{ title() }}</span>
       <button mat-button routerLink="/employees" routerLinkActive="active">Employees</button>
-      <button mat-button routerLink="/attendance" routerLinkActive="active">Attendance</button>
+      <button mat-button routerLink="/attendance" routerLinkActive="active">Mark Attendance</button>
+      <button mat-button routerLink="/attendance-records" routerLinkActive="active">View Records</button>
     </mat-toolbar>
 
     <!-- Main Content -->

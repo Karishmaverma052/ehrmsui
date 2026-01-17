@@ -66,6 +66,10 @@ export class ApiService {
     return this.http.post<Attendance>(`${this.apiUrl}/mark_attendance`, attendance);
   }
 
+  deleteAttendance(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/attendance/${id}`);
+  }
+
   getEmployeeAttendance(employeeId: string): Observable<Attendance[]> {
     return this.http.get<Attendance[]>(`${this.apiUrl}/attendance/employee/${employeeId}`);
   }
