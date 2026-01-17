@@ -1,0 +1,12 @@
+{
+  "name": "employee-ui",
+  "version": "1.0.0",
+  "description": "Employee Management System UI - Angular 21 with Material Design",
+  "runtime": "docker",
+  "builder": "dockerfile",
+  "dockerfile": "Dockerfile",
+  "port": 80,
+  "variables": {
+    "API_URL": "http://localhost:8000"
+  }
+}

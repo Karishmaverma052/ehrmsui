@@ -21,9 +21,20 @@ export interface Attendance {
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:8000'; // Updated to port 8000
+  private apiUrl: string;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // Use environment variable or fallback to localhost:8000
+    this.apiUrl = this.getApiUrl();
+  }
+
+  private getApiUrl(): string {
+    const apiUrl = (window as any)['__API_URL__'] || localStorage.getItem('apiUrl');
+    if (apiUrl) {
+      return apiUrl;
+    }
+    return 'http://localhost:8000'; // fallback for development
+  }
 
   // Employee CRUD operations
   getEmployees(): Observable<Employee[]> {
