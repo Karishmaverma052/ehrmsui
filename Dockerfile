@@ -18,7 +18,8 @@ RUN npm run build
 # Stage 2: Serve the application with nginx
 FROM nginx:alpine
 
-# Copy nginx configuration
+# Remove default nginx config and copy custom configuration
+RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy entrypoint script
