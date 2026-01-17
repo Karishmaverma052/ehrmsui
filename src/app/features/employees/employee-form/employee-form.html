@@ -1,0 +1,32 @@
+<div class="form-container">
+  <h2>Add New Employee</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Employee ID</mat-label>
+      <input matInput formControlName="employee_id" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="full_name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Department</mat-label>
+      <mat-select formControlName="department" required>
+        <mat-option *ngFor="let dept of departments" [value]="dept">
+          {{ dept }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+      Add Employee
+    </button>
+  </form>
+</div>
